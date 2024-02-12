@@ -31,6 +31,8 @@
         let deletebutton=document.createElement("button")
         let completebutton=document.createElement("button");
         let editbutton=document.createElement("button");
+        let checkbox=document.createElement("input")
+        checkbox.setAttribute("type", "checkbox")
         editbutton.classList.add("edit-btn")
         deletebutton.classList.add("delete-btn")
         deletebutton.textContent="delete"
@@ -39,13 +41,26 @@
         completebutton.classList.add("complete-btn")
         li.setAttribute("id",i++)
         editbutton.textContent="edit"
+        checkbox.classList.add("check-btn")
+       
         div.append(li)
+        div.append(checkbox)
         div.append(completebutton)
+        
        
         div.append(editbutton)
         div.append(deletebutton)
         ul.append(div)
     }
+    ul.addEventListener("click", function()
+    {
+        if(event.target.classList.contains("check-btn"))
+        {
+            let a=event.target.parentElement;
+            a.classList.toggle("text")
+        }
+        
+    })
 
     ul.addEventListener("click", function()
     {
