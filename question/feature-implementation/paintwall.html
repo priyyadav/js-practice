@@ -1,0 +1,101 @@
+<!-- Asian Paints wants the users to be able to preview and compare how different
+colors will look on their walls. They also decided that limiting it to 10 walls
+is the best bet not to confuse the users and still give them ample colors and
+shades to compare. You are a developer at Asian Paints and have decided to build
+a feature for this. You designed the feature in such a way that users will be
+able to see 10 walls on their screen. There will be 2 input boxes and 2 buttons.
+Each wall will have an id associated with it. The first input box will take the
+id of the wall. The second input box will take the color from the users. The
+Apply button will apply the color to the wall with the same id in the input
+field. The Reset button will reset the color of the walls to transparent.
+Acceptance Criteria: Create 10 walls, 2 input fields, and 2 buttons. Each block
+should have a unique id corresponding to it in 1-10 and the same value. For
+example, the first wall will have
+<div id="1" value="1"></div>
+. Give every block a class of "block" as well. These 10 blocks should reside in
+a section with class "blocks-wall", and give this section, with class
+"blocks-wall", a grid display, with grid-template-columns repeating 4 times with
+70px of width. The first input box that accepts the id of the wall should have
+id="wall_id" and should be of type "number". The first input box that accepts
+the color of the wall should have id="wall_color" and should be of type "text".
+The Apply button should have id="apply-btn". The Reset button should have
+id="reset-btn". If Apply button is pressed, take the color from the
+input#wall_color and the wall from the input#wall_id and set the color as the
+background color of the wall. The background color for all other walls should
+turn transparent. On entering the new color in the input#wall_color and the wall
+in the input#wall_id, set the color as the background color of that block, and
+persist the color and the block of the previous color input and block. If the
+Reset button is pressed, the background color for all the blocks should turn
+transparent. This is how the app should look like -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wall
+        {
+            display: flex;
+            width: 500px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .box
+        {
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input id="id" type="text" placeholder="enter id">
+        <input id="color" type="text" placeholder="enter color">
+        <button onclick="setcolor()">submit</button>
+        <button onclick="resetcolor()">reset</button>
+    </div>
+    <div id="wall"></div>
+</body>
+<script>
+    let j=1;
+   
+    let wall=document.getElementById("wall")
+    let data=new DocumentFragment();
+    for(let i=1; i<=10; i++)
+    {
+        let div=document.createElement("div")
+        div.setAttribute("id", j)
+        div.setAttribute("value", j)
+        div.classList.add("box")
+        j=j+1;
+        data.append(div)
+    }
+    wall.append(data)
+  function setcolor()
+  {
+    let id=document.getElementById("id").value;
+    let color=document.getElementById("color").value;
+    const selectedWall = document.getElementById(id);
+    if (selectedWall) {
+        selectedWall.style.backgroundColor = color;
+    }
+    
+    id=" ";
+     color=" ";
+
+  }
+  let box=document.querySelectorAll(".box")
+  function resetcolor()
+  {
+    box.forEach((block)=>
+    {
+        block.style.backgroundColor='transparent';
+    })
+    
+  }
+</script>
+</html>
