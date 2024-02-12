@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<p>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+    
+    </h1>
+    <h2>
+
+    </h2>
+    <div>
+        <h1>
+            <span>
+                  <strong>
+                  </strong>
+            </span>
+        </h1>
+        
+    </div>
+</body>
+<script>
+// recursive solution
+
+let div = document.createElement('div');
+
+function recursive(element) {
+    let span = document.createElement('span');
+    let p = document.createElement('p');
+
+    if (element == null) {
+        return;
+    }
+
+    span.textContent = element.tagName + " ";
+    p.append(span);
+    div.append(p);
+
+    for (let i = 0; i < element.children.length; i++) {
+        recursive(element.children[i]);
+    }
+
+    let br = document.createElement('br');
+    div.append(br);
+}
+
+recursive(document.documentElement);
+let body = document.body;
+body.append(div);
+console.log(body);
+
+// function hh(element) {
+//     if (element==null) {
+//         return;
+//     }
+
+//     console.log(element.tagName);
+//     for (let e = 0; e < element.children.length; e++) {
+//         hh(element.children[e]);
+//     }
+// }
+// hh(document.documentElement);
+
+
+
+
+// iterative solution
+
+// let div=document.createElement('div')
+
+// function iterative(element)
+// {
+//     let arr=[];
+//     arr.push(element);
+//     arr.push(null)
+   
+//     let span=document.createElement('span');
+//     let p=document.createElement('p');
+//     while(arr.length>0)
+//     {
+       
+//         let element=arr.shift();
+//         if(element ==null)
+//         {
+//             if(arr.length==0)
+//             {
+//                 break;
+//             }
+//             else{
+//                 div.append(p);
+//                 let br=document.createElement('br')
+//                 div.append(br)
+//                 span=document.createElement('span');
+//                 p=document.createElement('p');
+//                 arr.push(null);
+                
+//             }
+            
+//         }
+//         else
+//         {
+            
+//             span.textContent=element.tagName+" ";
+//             p.append(span)
+//             span=document.createElement('span');
+//         for(let i=0; i<element.children.length; i++)
+//         {
+//             arr.push(element.children[i]);
+        
+//         }
+//         }
+//        div.append(p)
+
+//     }
+// }
+// iterative(document.documentElement);
+// let body=document.body;
+// body.append(div)
+// console.log(body)
+</script>
+</html>
