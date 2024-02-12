@@ -1,0 +1,123 @@
+<!-- Your task is to enhance the interactivity of a web page by implementing
+JavaScript functionalities that allow users to modify the appearance of a sample
+text. The HTML boilerplate provided includes elements for changing the text
+color, font size, applying text styles (underline, italic, bold), changing the
+font family, and a button to display the CSS properties applied to the text.
+Requirements: Color Change Functionality: Implement JavaScript to change the
+color of the text inside the #text-container div when the "Change Color" button
+is clicked. The color value should be taken from the input field next to the
+button. Font Size Adjustment: Use JavaScript to adjust the font size of the text
+inside the #text-container based on the value of the range input slider. The
+font size should update live as the slider is moved. The default should be 55.
+Text Style Toggles: Add event listeners to the "Underline", "Italic", and "Bold"
+buttons that toggle the respective text styles for the #text-container content.
+If the text is already styled accordingly, clicking the button again should
+remove the style. Font Family Selection: Enable the dropdown list to change the
+font family of the text inside the #text-container to the selected option.
+Display CSS Properties: When the "Get CSS Properties" button is clicked, display
+the current CSS properties (color, font size, text decoration, font style, font
+weight, and font family) applied to the #text-container text in the paragraph
+below the button. Ensure the displayed properties accurately reflect the current
+state of the text styling. Display the CSS properties inside a paragraph with
+id="css-props" in the format {Property name}: {Property value}, leaving a space
+between every two properties. Example: color: ; font-size: 55px;
+text-decoration: none; font-style: none; font-weight: none; font-family: serif;
+This is how the result should look like: -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="colorbox">Change Text Color:</label>
+    <input type="text" id="colorbox" placeholder="Enter color code here">
+    <button id="colorchange" onclick="changeColor()">Change Color</button>
+    <br />
+    <label for="fontsize">Change Font Size:</label>
+    <input type="range" id="fontsize" min="10" max="100" value="55" oninput="changeFontSize(this.value)">
+    <br />
+    <button class="stylebt" id="underline" onclick="toggleStyle('underline')">Underline</button>
+    <button class="stylebt" id="italic" onclick="toggleStyle('italic')">Italic</button>
+    <button class="stylebt" id="bold" onclick="toggleStyle('bold')">Bold</button>
+    <br />
+    <label for="list">Change Font Family:</label>
+    <select id="list" onchange="changeFontFamily()">
+        <option value="serif">Serif</option>
+        <option value="sans-serif">Sans-Serif</option>
+        <option value="monospace">Monospace</option>
+        <option value="cursive">Cursive</option>
+        <option value="fantasy">Fantasy</option>
+    </select>
+    <br />
+    <button id="getstyle" onclick="getCSSProperties()">Get CSS Properties</button>
+    <br />
+    <p id="css-props"></p>
+    <div class="text-here" id="text-container">This is some example text</div>
+  </body>
+  <script>
+    function changeColor() {
+    var colorInput = document.getElementById('colorbox').value;
+    document.getElementById('text-container').style.color = colorInput;
+}
+
+let aa=document.getElementById("fontsize").value;
+document.getElementById('text-container').style.fontSize=aa + 'px';
+
+function changeFontSize(size) {
+    document.getElementById('text-container').style.fontSize = size + 'px';
+}
+
+function toggleStyle(style) {
+    var textContainer = document.getElementById('text-container');
+   
+    var currentStyles = textContainer.style.fontWeight + ' ' + textContainer.style.fontStyle + ' ' + textContainer.style.textDecoration;
+
+    switch (style) {
+        case 'underline':
+            textContainer.style.textDecoration = (currentStyles.includes('underline') ? 'none' : 'underline');
+            break;
+        case 'italic':
+            textContainer.style.fontStyle = (currentStyles.includes('italic') ? 'normal' : 'italic');
+            break;
+        case 'bold':
+            textContainer.style.fontWeight = (currentStyles.includes('bold') ? 'normal' : 'bold');
+            break;
+    }
+}
+
+function changeFontFamily() {
+    var fontSelection = document.getElementById('list');
+    var selectedFont;
+
+    
+    for (var i = 0; i < fontSelection.options.length; i++) {
+        if (fontSelection.options[i].selected) {
+            selectedFont = fontSelection.options[i].value;
+            break;
+        }
+    }
+
+    document.getElementById('text-container').style.fontFamily = selectedFont;
+}
+
+function getCSSProperties() {
+    var textContainer = document.getElementById('text-container');
+    var cssPropsParagraph = document.getElementById('css-props');
+
+    var cssProperties = {
+        'color': textContainer.style.color,
+        'font-size': textContainer.style.fontSize,
+        'text-decoration': textContainer.style.textDecoration,
+        'font-style': textContainer.style.fontStyle,
+        'font-weight': textContainer.style.fontWeight,
+        'font-family': textContainer.style.fontFamily
+    };
+
+    var cssPropertiesString = Object.entries(cssProperties).map(([property, value]) => `${property}: ${value};`).join(' ');
+    cssPropsParagraph.textContent = cssPropertiesString;
+}
+  </script>
+</html>
