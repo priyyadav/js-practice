@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text
+        {
+            text-decoration: line-through solid red;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <input id="input" type="text">
+        <button id ="submitButton" onclick="submit()">submit</button>
+    </div>
+</body>
+<script>
+    let i=1;
+    let ul=document.createElement("ul");
+    function submit()
+    {
+        let li=document.createElement("li")
+        let div=document.createElement("div")
+        let input=document.getElementById("input");
+        li.textContent=input.value;
+        input.value=""
+        let deletebutton=document.createElement("button")
+        let completebutton=document.createElement("button");
+        let editbutton=document.createElement("button");
+        editbutton.classList.add("edit-btn")
+        deletebutton.classList.add("delete-btn")
+        deletebutton.textContent="delete"
+        completebutton.textContent="complete"
+        li.classList.add("list-item")
+        completebutton.classList.add("complete-btn")
+        li.setAttribute("id",i++)
+        editbutton.textContent="edit"
+        div.append(li)
+        div.append(completebutton)
+       
+        div.append(editbutton)
+        div.append(deletebutton)
+        ul.append(div)
+    }
+
+    ul.addEventListener("click", function()
+    {
+        if(event.target.classList.contains("delete-btn"))
+        {
+            let a=event.target;
+            a.parentElement.remove()
+        }
+        
+    })
+    ul.addEventListener("click", function()
+    {
+        if(event.target.classList.contains("complete-btn"))
+        {
+        let task = event.target.parentNode;
+        task.classList.toggle("text");
+        let gg=event.target.parentElement;
+        let editElement = task.querySelector(".edit-btn");
+
+            editElement.setAttribute("disabled","true")
+        }
+        
+    })
+
+    ul.addEventListener("click", function()
+    {
+        if(event.target.classList.contains("edit-btn"))
+        {
+            let input=document.getElementById("input")
+            let task = event.target.parentNode;
+            let childElement = task.querySelector(".list-item"); 
+            let editElement = task.querySelector(".edit-btn");
+            let index=childElement.id;
+            editElement.setAttribute("disabled","true")
+            let text = childElement.textContent; 
+            input.value=text
+            let submitButton = document.getElementById("submitButton");
+                submitButton.textContent = "Edit";
+                submitButton.onclick = function() {
+                    childElement.textContent = input.value;
+                    submitButton.textContent = "Submit";
+                    editElement.removeAttribute("disabled");
+                    input.value = "";
+                };
+
+
+   
+        }
+        
+    })
+    document.body.append(ul)
+    
+</script>
+</html>
