@@ -2,11 +2,11 @@
 
 
 //  this normal function is hosited inn gec as function and stored as a function
-test()
-function test()
-{
-    console.log("hello js")
-}
+// test()
+// function test()
+// {
+//     console.log("hello js")
+// }
 
 // arrow function this is var so it is hosted as variable not a funnction so in gec it will be test1=undefined
 
@@ -29,52 +29,52 @@ function test()
 
 // iife
 
-(function multiply(num) {
-    return num * num;
-  })(10);
+// (function multiply(num) {
+//     return num * num;
+//   })(10);
   
 
 
-  (function (x) {
-    return (function (y) {
-      console.log(x);
-    })(2);
-  })(1);
+//   (function (x) {
+//     return (function (y) {
+//       console.log(x);
+//     })(2);
+//   })(1);
 
 
 
 
 
-// function expression
+// // function expression
 
-  var b = function xyz() {
-    console.log("function expression");
-    console.log(b); //can access xyz function like this
-  };
-//   xyz(); 
-b()
+//   var b = function xyz() {
+//     console.log("function expression");
+//     console.log(b); //can access xyz function like this
+//   };
+// //   xyz(); 
+// b()
 
-var b = function (param1) {
-    console.log(param1);
-  };
-b("ll")
+// var b = function (param1) {
+//     console.log(param1);
+//   };
+// b("ll")
 
 // higher order function
 
-function demo()
-{
-    console.log("hi")
-}
+// function demo()
+// {
+//     console.log("hi")
+// }
 
-function f(demo)
-{
-    console.log("before callback")
+// function f(demo)
+// {
+//     console.log("before callback")
   
-  demo()
-  console.log("after callback")
-}
+//   demo()
+//   console.log("after callback")
+// }
 
-f(demo)
+// f(demo)
 
 
 //  1+null
@@ -147,25 +147,171 @@ f(demo)
 // if we want to define take multiple argument then we have to do destructor
 // ...nums are rest operator
 
-function argms(...nums) {
-    console.log(nums,"nums");
-    console.log(nums.length,"length")
-    for(let i=0; i<5; i++)
-    {
-        // console.log(arguments[i])
-        console.log(nums.push(90))
-        console.log(nums)
-    }
+// function argms(...nums) {
+//     console.log(nums,"nums");
+//     console.log(nums.length,"length")
+//     for(let i=0; i<5; i++)
+//     {
+//         // console.log(arguments[i])
+//         console.log(nums.push(90))
+//         console.log(nums)
+//     }
+//   }
+// argms(3, 4, 4, 6, 8, 7);
+
+
+
+
+
+
+
+
+
+// const args = () => {
+//     //   console.log(arguments); will throw an error
+//   };
+
+
+
+
+
+
+
+
+
+//   var num1 = 2;
+//   num2 = 3;
+//   name = "Hello";
+  
+//   function multifly() {
+//     console.log(num1 * num2);
+//     console.log("hi")
+//   }
+//   multifly();
+
+
+
+
+
+
+
+// let num4 = 2;
+// num5 = 4;
+
+// function add() {
+//   console.log(num4 * num4); 
+// }
+// add();
+
+
+
+
+
+// function getScore() {
+//     var num1 = 4;
+//     num2 = 6;
+//     function add() {
+//     //   console.log(name + "socred" + (num1 + num2));
+//     return num1+num2
+//     }
+//     return add();
+//   }
+//   console.log(getScore());
+
+
+
+
+
+
+//   function getScore() {
+//     var num1 = 4;
+//     num2 = 6;
+//     var num3=function add() {
+//     //   console.log(name + "socred" + (num1 + num2));
+//     console.log(num1, "num1", num2)
+//     return num1+num2
+//     }
+//     return num3();
+//   }
+//   console.log(getScore());
+
+
+
+
+
+
+
+
+// const ytrewq = (q, w, e, ...numbr,r) => { 
+// //spread operator should always be in the end
+// console.log(q, w, e, r, numbr);
+// };
+// ytrewq(3, 4, 5, 6, 7);
+
+
+
+
+
+
+
+
+// function a() {
+//     return "qwerty";
+//   }
+  
+//   function b() {
+//     console.log(a()); 
+//     // undefined
+//   }
+//   b();
+  
+  
+  
+// function a() {
+//     return "qwerty";
+//   }
+  
+//   function b(a) {
+//     console.log("before")
+//     console.log(a());
+//     console.log("after")
+//   }
+//   b(a);
+
+
+
+// function b() {
+//     console.log(a());
+//   }
+//   b();
+
+
+// function a() {
+//     return "qwerty";
+//   }
+  
+
+
+
+// function b() {
+//     console.log(test());
+//   }
+// b();
+
+// let test=function a() {
+//     return "priyanl";
+//   }
+
+//  test is not intialized
+
+let test=function a() {
+    return "priyanka";
   }
-argms(3, 4, 4, 6, 8, 7);
 
-
-const args = () => {
-    //   console.log(arguments); will throw an error
-  };
-
-
-
+function b() {
+    console.log(test());
+  }
+b();
 
 
 
