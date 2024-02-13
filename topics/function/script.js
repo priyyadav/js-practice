@@ -304,15 +304,34 @@
 
 //  test is not intialized
 
-let test=function a() {
-    return "priyanka";
-  }
+// let test=function a() {
+//     return "priyanka";
+//   }
 
-function b() {
-    console.log(test());
-  }
-b();
+// function b() {
+//     console.log(test());
+//   }
+// b();
 
+
+// function q() {
+//     return "asdfghjkl";
+//   }
+//   function p() {
+//     return q();
+//   }
+//   console.log(p(q));
+  
+
+
+  function calculate(operation, a, b) {
+    return operation(a, b);
+  }
+  function add(a,b) {
+    return a+b
+    
+  }
+  console.log(calculate(add,2,4));
 
 
 
