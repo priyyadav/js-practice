@@ -222,15 +222,96 @@ let arr=[1,2,3,4,5,6,7,8,9]
 
 
 
-Array.prototype.customunshift=function(element)
-{
-    let len=this.length
-    for(let  i=len-1; i>=0; i--)
-    {
-        this[i+1]=this[i]
-    }
-    this[0]=element;
-    return this.length;
-}
-arr.customunshift(909);
-console.log(arr)
+// Array.prototype.customunshift=function(element)
+// {
+//     let len=this.length
+//     for(let  i=len-1; i>=0; i--)
+//     {
+//         this[i+1]=this[i]
+//     }
+//     this[0]=element;
+//     return this.length;
+// }
+// arr.customunshift(909);
+// console.log(arr)
+
+
+
+
+// foreach polyfill
+
+
+// Array.prototype.customforeach=function(callback)
+// {
+//     for(let i=0; i<this.length; i++)
+//     {
+//         callback(this[i], i, this)
+
+//     }
+   
+// }
+// arr.customforeach(function(ele){
+//     console.log(ele)
+// })
+
+
+
+
+//  map polyfill
+
+
+// Array.prototype.custommap=function(callback)
+// {
+//     let result=[];
+//     for(let i=0; i<this.length; i++)
+//     {
+//         let ele=callback(this[i]);
+//         result.push(ele)
+//     }
+//     return result;
+    
+// }
+
+// let target=arr.custommap(function(ele){
+//     console.log(ele*ele)
+//     return ele*ele
+// })
+
+// console.log(target)
+
+
+
+// filter polyfill
+
+// Array.prototype.customfilter=function(callback)
+// {
+//     let result=[]
+//     for(let i=0; i<this.length; i++)
+//     {
+//         let ele=callback(this[i]);
+//         if(ele)
+//         {
+//             result.push(this[i])
+//         }
+//     }
+//     return  result;
+// }
+// let target=arr.customfilter(function(ele)
+// {
+//     if(ele>5)
+//     {
+//         return true
+//     }
+//     else{
+//         return false
+//     }
+// })
+// console.log(target)
+
+
+
+
+
+// reduce polyfill
+
+
