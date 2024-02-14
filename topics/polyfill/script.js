@@ -3,17 +3,17 @@ let arr=[1,2,3,4,5,6,7,8,9]
 
 // push polyfill
 
-Array.prototype.custompush=function(element)
-{
+// Array.prototype.custompush=function(element)
+// {
   
-    let len=this.length;
-    this[len]=element;
-    return len+1;
+//     let len=this.length;
+//     this[len]=element;
+//     return len+1;
   
-}
+// }
 
-console.log(arr.custompush(999))
-console.log(arr)
+// console.log(arr.custompush(999))
+// console.log(arr)
 
 
 
@@ -135,48 +135,67 @@ console.log(arr)
 // fruits.customsplice(1,2,"Lemon");
 // console.log(fruits)
 
-Array.prototype.customsplice = function (start, deleteCount, ...elements) {
+// Array.prototype.customsplice = function (start, deleteCount, ...elements) {
     
-    const len = this.length;
+//     const len = this.length;
     
-            if(start<0) {
-            start=start+len;
-        }
-        start = start < 0 ? 0 : start;
-        if(deleteCount<0) {
-            deleteCount=0;
-        }
-        else {
-            deleteCount=deleteCount>len-start ? len-start : deleteCount;
-        }
+//             if(start<0) {
+//             start=start+len;
+//         }
+//         start = start < 0 ? 0 : start;
+//         if(deleteCount<0) {
+//             deleteCount=0;
+//         }
+//         else {
+//             deleteCount=deleteCount>len-start ? len-start : deleteCount;
+//         }
   
-    const delta = elements.length - deleteCount;
-    const newLength = len + delta;
-    console.log("de", delta)
-    console.log("new", newLength)
+//     const delta = elements.length - deleteCount;
+//     const newLength = len + delta;
+//     console.log("de", delta)
+//     console.log("new", newLength)
   
-    if (delta > 0) { 
-      for (let i = len - 1; i >= start + deleteCount; i--) {
-        this[i + delta] = this[i];
-        console.log(this,"right")
-      }
-    } else if (delta < 0) { 
-      for (let i = start + deleteCount; i < len; i++) {
-        this[i + delta] = this[i];
-        console.log(this,"left")
-      }
-    }
+//     if (delta > 0) { 
+//       for (let i = len - 1; i >= start + deleteCount; i--) {
+//         this[i + delta] = this[i];
+//         console.log(this,"right")
+//       }
+//     } else if (delta < 0) { 
+//       for (let i = start + deleteCount; i < len; i++) {
+//         this[i + delta] = this[i];
+//         console.log(this,"left")
+//       }
+//     }
   
-    console.log(this,"ara")
-    for (let i = 0; i < elements.length; i++) {
-      this[start + i] = elements[i];
-    }
-    console.log(this,"after")
+//     console.log(this,"ara")
+//     for (let i = 0; i < elements.length; i++) {
+//       this[start + i] = elements[i];
+//     }
+//     console.log(this,"after")
  
     
-  };
+//   };
   
 
-  const fruits = ["Banana","Orange","l","k","p"];
-fruits.customsplice(1,2,"Lemon","priya","yadav","hello");
-console.log(fruits)
+//   const fruits = ["Banana","Orange","l","k","p"];
+// fruits.customsplice(1,2,"Lemon","priya","yadav","hello");
+// console.log(fruits)
+
+Array.prototype.customreverse=function()
+{
+    let len=this.length;
+    let i=0;
+    let j=len-1;
+    while(i<=j)
+    {
+        let temp=this[i]
+        this[i]=this[j];
+        this[j]=temp
+       
+        i++;
+        j--;
+    }
+}
+
+arr.customreverse();
+console.log(arr)
