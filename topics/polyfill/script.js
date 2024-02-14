@@ -181,21 +181,56 @@ let arr=[1,2,3,4,5,6,7,8,9]
 // fruits.customsplice(1,2,"Lemon","priya","yadav","hello");
 // console.log(fruits)
 
-Array.prototype.customreverse=function()
-{
-    let len=this.length;
-    let i=0;
-    let j=len-1;
-    while(i<=j)
-    {
-        let temp=this[i]
-        this[i]=this[j];
-        this[j]=temp
-       
-        i++;
-        j--;
-    }
-}
 
-arr.customreverse();
+//  reverse polyfill
+
+// Array.prototype.customreverse=function()
+// {
+//     let len=this.length;
+//     let i=0;
+//     let j=len-1;
+//     while(i<=j)
+//     {
+//         let temp=this[i]
+//         this[i]=this[j];
+//         this[j]=temp
+       
+//         i++;
+//         j--;
+//     }
+// }
+
+// arr.customreverse();
+// console.log(arr)
+
+
+// shift polyfill
+
+// Array.prototype.customshift=function()
+// {
+//     let len=this.length
+//     let firstelement=this[0];
+//     for(let  i=1; i<len; i++)
+//     {
+//         this[i-1]=this[i]
+//     }
+//     return this.length--;
+// }
+// arr.customshift();
+// console.log(arr)
+
+
+
+
+Array.prototype.customunshift=function(element)
+{
+    let len=this.length
+    for(let  i=len-1; i>=0; i--)
+    {
+        this[i+1]=this[i]
+    }
+    this[0]=element;
+    return this.length;
+}
+arr.customunshift(909);
 console.log(arr)
