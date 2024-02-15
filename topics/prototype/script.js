@@ -40,4 +40,5 @@ function create(username, score) {
   chai.print()
 
 
-//    here this is refer to create object because using new keyword it will create a new object and also give this property
+//  here this is refer to create object because using new keyword it will create a new object and also give this property and it links 
+//  all its properyt to constructor
