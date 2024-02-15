@@ -93,7 +93,8 @@ window.aa()
 // console.log("a",a)
 
 
-//  when we use new keyword it create e object add the thing in that oject function is like object thir refere to funtion because inn
+//  when we use new keyword it create e object add the thing in that oject function is like object thir refere to funtion 
+// because inn
 // internal it create a object in that object this is associtated  and contructor will call add al the portoype
 
 // function text()
@@ -171,10 +172,13 @@ window.aa()
 // function createObj() {
 //     let obj = {
 //         a: 10,
+//         th: this,
 //         obj2: {
 //             b: 100,
 //             y: () => {
-//                 console.log("yhh", this); // 'this' here will refer to the lexical scope of createObj
+//                 console.log("yhh", this);
+//                  // 'this' here will refer to the lexical scope of createObj
+//                  // 'this' here will refer to the lexical scope of createObj
 //             }
 //         },
 //         x: function() {
@@ -195,7 +199,7 @@ let obj = {
     a: 10,
 
     x: function() {
-        // ḷexical scoping context
+        // ḷexical scoping context inherit from parent
         let y= ()=>
         {
             console.log(this, "xjj");
