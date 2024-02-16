@@ -260,20 +260,134 @@ a();
 // }
 // test();
 
-function test()
-{
-    for (var i = 0; i < 3; i++) {
-         function inner(i)
-        {
-            setTimeout(function log() {
-                console.log(i); // What is logged?
-              }, 1000);
-        }
-        inner(i)
-      }
+// function test()
+// {
+//     for (var i = 0; i < 3; i++) {
+//          function inner(i)
+//         {
+//             setTimeout(function log() {
+//                 console.log(i); // What is logged?
+//               }, 1000);
+//         }
+//         inner(i)
+//       }
     
-}
-test()
+// }
+// test()
+
+
+
+
+
+// You can create a function within an outer function (a closure) that 
+// allows you to update a private variable but the variable wouldn't be accessible 
+// from outside the function without the use of a helper function.
+
+
+// function outer() {
+
+//     var x = 10;
+    
+//     function inner() {
+    
+//     var y = 5;
+    
+//     console.log(x + y);
+    
+//     x = 20;
+//     // function we have to define data type because on call stack without complete we cannot change the contet
+    
+//     }
+    
+//     return inner;
+    
+//     }
+    
+//     var innerFunc = outer();
+    
+//     innerFunc();
+    
+//     innerFunc();
+
+
+
+
+
+
+    function outer() {
+
+        var x = 10;
+        
+        function inner() {
+        
+        var y = 5;
+        var x = 20;
+       
+        console.log(x + y,x);
+        
+        }
+        inner ();
+        // var x = 20;
+        
+        
+        
+        }
+        
+        var innerFunc = outer();
+        
+        // innerFunc();
+
+// var is hoisted in function scope but the value is undefined  varx = undefnied but if he got x present in outer funtion
+
+// it will take it from there not undefied but if value is not undefnied it first poririt y is inner function
+
+
+
+
+
+        // function outer() {
+
+        //     var x = 10;
+            
+        //     function inner() {
+            
+        //     var y = 5;
+            
+        //     console.log(x + y);
+            
+        //     }
+            
+        //     return inner;
+            
+        //     }
+            
+        //     var innerFunc = outer();
+            
+        //     innerFunc();
+
+
+
+
+            // function outer() {
+
+            //     var x = 10;
+                
+            //     function inner() {
+                
+            //     console.log(x);
+                
+            //     }
+                
+            //     x = 20;
+                
+            //     return inner;
+                
+            //     }
+                
+            //     var innerFunc = outer();
+                
+
+
 
 
 

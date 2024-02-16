@@ -255,15 +255,19 @@
 
 
 
-// function a() {
-//     return "qwerty";
-//   }
+
   
-//   function b() {
-//     console.log(a()); 
-//     // undefined
-//   }
-//   b();
+  // function b() {
+  //   console.log(a()); 
+
+  // }
+  // b();
+
+  // let a=function () {
+  //   return "qwerty";
+  // }
+
+//  here it will look for local spope if will not find then it will go glober scoper either it is present ot not
   
   
   
@@ -324,14 +328,14 @@
   
 
 
-  function calculate(operation, a, b) {
-    return operation(a, b);
-  }
-  function add(a,b) {
-    return a+b
+  // function calculate(operation, a, b) {
+  //   return operation(a, b);
+  // }
+  // function add(a,b) {
+  //   return a+b
     
-  }
-  console.log(calculate(add,2,4));
+  // }
+  // console.log(calculate(add,2,4));
 
 
 
