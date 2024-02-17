@@ -369,13 +369,13 @@ this.a = 5;
 
 function hi({name}) {
   console.log(this,"hi"); // Logs undefined, as there's no explicit context passed
-  const self = this; // Capturing "this" in a variable
+  const self = this; // window
 
   return function y() {
-    console.log(this, "this"); // Logs {name: "priyank"} (closure created)
+    console.log(this, "this"); 
     setTimeout(function() {
-      console.log(self.name, "ko", self); // Logs "priyank", "ko", {name: "priyank"}
-    }, 1000); // Using the variable "self" instead of "this"
+      console.log(self.name, "ko", self); 
+    }, 1000); 
   };
 }
 
