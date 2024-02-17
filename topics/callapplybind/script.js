@@ -258,10 +258,22 @@ let obj = {
     }
 }
 
-obj.d()
+// obj.d()
+obj.c()
 
 // what will this print // now we can expect that it will print obj object but it will print anotherObject object.
 // why is that ? 
 
 // once a function is made by bind it always bind to that part only. so normal rules does not apply.
-obj.x()
+// obj.x()
+
+function f()
+{
+    console.log(this)
+}
+
+let user = {
+    g: f.bind(null),
+}
+
+user.g(); // refers to window obj
