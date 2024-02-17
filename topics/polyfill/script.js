@@ -1,4 +1,4 @@
-let arr=[1,2,3,4,5,6,7,8,9]
+let arr=[9,9,9,9,9,9,9,9,9]
 
 
 // push polyfill
@@ -315,3 +315,68 @@ let arr=[1,2,3,4,5,6,7,8,9]
 // reduce polyfill
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// find polyfill
+
+// Array.prototype.find=function(callback)
+// {
+//     let result;
+//   for(let i=0; i<this.length; i++)
+//   {
+//     result=callback(this[i],i, this);
+//     if(result)
+//     {
+//         return this[i];
+//     }
+//   }
+//   return undefined;
+// }
+// let target=arr.find((ele)=>ele>90)
+// console.log(target)
+
+
+
+
+
+
+
+// Array.prototype.customfindindex = function(callback) {
+//     for(let i = 0; i < this.length; i++) {
+//         if(callback(this[i], i, this)) {
+//             return i;
+//         }
+//     }
+//     return -1;
+// };
+// let target=arr.customfindindex((ele)=>ele>5)
+// console.log(target)
+
+
+
+Array.prototype.customindexof=function(element,index=0 ){
+    for(let i=index; i<this.length; i++)
+    {
+        if(this[i]===element)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+let target=arr.customindexof(9,7)
+console.log(target)
