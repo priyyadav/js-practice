@@ -277,3 +277,38 @@ let user = {
 }
 
 user.g(); // refers to window obj
+
+
+
+Function.prototype.myCall = function(currentContext = {}, ...arg) {
+  
+    if (typeof this !== 'function') {
+      throw new Error(this + "it's not callable");
+    }
+    currentContext.fn = this;
+    currentContext.fn(...arg);
+  };
+
+  Function.prototype.myCall = function(currentContext = {}, arg=[]) {
+  
+    if (typeof this !== 'function') {
+      throw new Error(this + "it's not callable");
+    }
+    if (!Array.isArray(arg)) {
+        throw new TypeError('called on non-object')
+      }
+    currentContext.fn = this;
+    currentContext.fn(...arg);
+  };
+
+  Function.prototype.myBind = function(currentContext = {}, ...arg) {
+  
+    if (typeof this !== 'function') {
+      throw new Error(this + "cannot be bound as it's not callable");
+    }
+    currentContext.fn = this;
+    
+    return function (...next) {
+      return currentContext.fn(...arg,...next);
+    };
+  };
