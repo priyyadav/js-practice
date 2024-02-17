@@ -52,3 +52,73 @@ function curry(func) {
    
 
   
+
+
+// sum(1)(2)(3)(4)(5)(6)(7)(8)(9)()
+
+// function sum(a)
+// {
+//     return function(b)
+//     {
+//         if(b)
+//         {
+//             return sum(a+b)
+//         }
+//         else{
+//             return a
+//         }
+        
+//     }
+// }
+// console.log(sum(1)(2)(3)(4)(5)(6)(7)(8)(9)(),"ko")
+
+
+
+
+
+
+
+
+// function getSum (...args) {
+//     let total = 0
+//      function sum (...args) {
+
+//         console.log(args,"arrgs")
+//       for (const item of args) {
+//         total += item
+//       }
+//       return sum
+//     }
+  
+    
+//     sum.toString = function () {
+//         console.log("helo")
+//       return total
+//     }
+//     console.log(args,"arrgskk")
+//     return sum(...args)
+//   }
+  
+//   console.log(0 + getSum(1, 2)(4, 3)()(5)(),"kk")
+
+
+//   console.log(0 + getSum(1, 2)(4, 3)(4)(5)().toString(),"kki")
+
+
+//   function getSumV2 (...args) {
+//     let total = 0
+//     function sum (...args) {
+//       for (const item of args) {
+//         total += item
+//       }
+//       return sum
+//     }
+
+//     sum.valueOf = function () {
+//       return total
+//     }
+  
+//     return sum(...args)
+//   }
+  
+//   console.log(0 + getSumV2(1, 2)(4, 3)(4)(5))
