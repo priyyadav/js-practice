@@ -99,18 +99,18 @@
 
 
 
-let foo;
+// let foo;
 
-function foo() {
-	console.log( 1 );
-}
+// function foo() {
+// 	console.log( 1 );
+// }
 
 
-foo = function() {
-	console.log( 2 );
-};
+// foo = function() {
+// 	console.log( 2 );
+// };
 
-foo()
+// foo()
 
 // function foo() {
 // 	console.log( 1 );
@@ -158,24 +158,41 @@ foo()
 
 // undefined = true; // setting a land-mine for other code! avoid!
 
-(function IIFE( undefined ){
+// (function IIFE( undefined ){
 
-	var a;
-	if (a === undefined) {
-		console.log( "Undefined is safe here!" );
-	}
+// 	var a;
+// 	if (a === undefined) {
+// 		console.log( "Undefined is safe here!" );
+// 	}
 
-})();
+// })();
 
 
-var foo = true, baz = 10;
+// var foo = true, baz = 10;
 
-if (foo) {
-	var bar = 3;
+// if (foo) {
+// 	var bar = 3;
 
-	// ...
-}
+// 	// ...
+// }
 
-if (baz > bar) {
-	console.log( baz );
-}
+// if (baz > bar) {
+// 	console.log( baz );
+// }
+
+console.log([]+[],"arrt")
+console.log({}+{},"obj")
+
+
+console.log([1,3]+[4,5],"arrt")
+console.log({a:1}+{b:2},"obj")
+console.log(1+1)
+console.log("1"-1)
+console.log("1"*1)
+console.log("1"/1)
+console.log("a"+"1")
+console.log("a"-"1")
+console.log("a"*"1")
+console.log("a"/"1")
+console.log("100"/0)
+console.log("100"+0)
