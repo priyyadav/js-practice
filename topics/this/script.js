@@ -138,29 +138,29 @@ window.aa()
 
 
 
-// obj={
+obj={
 
-//     a:10,
+    a:10,
 
-//     obj2:
-//     {
+    obj2:
+    {
 
-//     b: 100,
-//      y: ()=>
-//      {
-//         console.log("y", this)
-//      }
-//     },
-//     x: function()
-//     {
-//         console.log(this,"x")
-//     }
+    b: 100,
+     y: function()
+     {
+        console.log("y", this)
+     }
+    },
+    x: function()
+    {
+        console.log(this,"x")
+    }
 
 
 
-// }
-// obj.x()
-// obj.obj2.y()
+}
+obj.x()
+obj.obj2.y()
 
 
 // If you want the arrow function y inside obj.obj2 to have its 
@@ -195,21 +195,31 @@ window.aa()
 
 
 
-let obj = {
-    a: 10,
+// let obj = {
+//     a: 10,
 
-    x: function() {
-        // ḷexical scoping context inherit from parent
-        let y= ()=>
-        {
-            console.log(this, "xjj");
-        }
-        y()
-    }
-};
+//     x: function() {
+//         // ḷexical scoping context inherit from parent
+//         let y= ()=>
+//         {
+//             console.log(this, "xjj");
+//         }
+//         y()
+//     }
+// };
 
-obj.x(); 
+// obj.x(); 
 
 
 
 //  this on dom reference to html button where it clickor sit
+
+
+// 
+// function aaa() {
+//     console.log(this); 
+//     return ()=> {
+//         console.log(this,"this"); 
+//     };
+// }
+// new aaa()()

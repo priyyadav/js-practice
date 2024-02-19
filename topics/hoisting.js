@@ -180,20 +180,45 @@
 // 	console.log( baz );
 // }
 
-console.log([]+[],"arrt")
-console.log({}+{},"obj")
+
+// console.log(1+1)
+// console.log("1"-1)
+// console.log("1"*1)
+// console.log("1"/1)
+// console.log("a"+"1")
+// console.log("a"-"1")
+// console.log("a"*"1")
+// console.log("a"/"1")
+// console.log("100"/0)
+// console.log("100"+0)
+
+// function a()
+// {
+    
+// }
+
+// console.log(typeof a)
 
 
-console.log([1,3]+[4,5],"arrt")
-console.log({a:1}+{b:2},"obj")
-console.log(1+1)
-console.log("1"-1)
-console.log("1"*1)
-console.log("1"/1)
-console.log("a"+"1")
-console.log("a"-"1")
-console.log("a"*"1")
-console.log("a"/"1")
-console.log("100"/0)
-console.log("100"+0)
+let a=[];
+let b=[];
+console.log(a===b)
 
+
+let obj = {
+    a: 10,
+    get() {
+        let ss = () => {
+            console.log(this, "1");
+        };
+        ss();
+    },
+    obj2: {
+        fn: () => {
+            console.log(this, "2");
+        }
+    }
+};
+
+obj.get();
+obj.obj2.fn();

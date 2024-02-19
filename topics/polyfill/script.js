@@ -366,7 +366,7 @@ let arr=[9,9,9,9,9,9,9,9,9]
 // console.log(target)
 
 
-
+a
 Array.prototype.customindexof=function(element,index=0 ){
     for(let i=index; i<this.length; i++)
     {
