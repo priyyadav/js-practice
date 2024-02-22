@@ -223,3 +223,12 @@ obj.obj2.y()
 //     };
 // }
 // new aaa()()
+
+
+
+function aa(name) {
+    console.log(name)
+    
+}
+
+aa.call(this,"priyanka")
