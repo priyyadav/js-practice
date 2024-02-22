@@ -111,40 +111,40 @@
   // i am promise
   
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  const p5 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("i am promise");
-    }, 2000);
-  });
-  const p6 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("i am promise");
-    }, 4000);
-  });
+  // const p5 = new Promise((resolve, reject) => {
+  //   setTimeout(() => {
+  //     resolve("i am promise");
+  //   }, 2000);
+  // });
+  // const p6 = new Promise((resolve, reject) => {
+  //   setTimeout(() => {
+  //     resolve("i am promise");
+  //   }, 4000);
+  // });
   
-  async function getData() {
-    console.log("i m above the await");
+  // async function getData() {
+  //   console.log("i m above the await");
   
-    let val1 = await p5;
-    console.log("i m from p1 await");
-    console.log(val1);
+  //   let val1 = await p5;
+  //   console.log("i m from p1 await");
+  //   console.log(val1);
   
-    let val2 = await p6;
-    console.log("i m from p2 await");
-    console.log(val2);
-  }
+  //   let val2 = await p6;
+  //   console.log("i m from p2 await");
+  //   console.log(val2);
+  // }
   
-  getData();
+  // getData();
 
-  function aa()
-  {
-    console.log("hello")
-  }
-  aa()
-  setTimeout(function()
-  {
-    console.log("settime hello")
-  },3000)
+  // function aa()
+  // {
+  //   console.log("hello")
+  // }
+  // aa()
+  // setTimeout(function()
+  // {
+  //   console.log("settime hello")
+  // },3000)
   
   // Here we have taken 2 promise calling in same function with await so if the first promise resolve in less time than second then it will print as per there time but if first is taking more than second promise second will take all the time and print all of then at once
   
@@ -159,3 +159,132 @@
   // Q - Difference between async await and promises
   // async await is synatatically sugar over promises behind it basically javascript using its own ,then .catch
   // async await easiler to write and read we dont have to write lot of code for promise chaining
+
+
+
+
+
+
+
+
+
+
+
+
+  // output question
+
+
+  // async function getData() {
+  //   return await Promise.resolve("i made it");
+  // }
+  
+  // const data = getData();
+  // console.log(data);
+
+
+
+// myPromise = () => Promise.resolve("I have resolved");
+
+// function firstFunction() {
+//   myPromise().then((res) => console.log(res));
+//   console.log("second");
+// }
+
+// async function secondFunction() {
+//   console.log(await myPromise());
+//   console.log("second");
+// }
+// firstFunction();
+// secondFunction();
+
+
+// console.log(Promise.resolve(5));
+
+
+// const myPromise = Promise.resolve("Heyyaa");
+
+// (async () => {
+//   try {
+//     console.log(await myPromise);
+//   } catch {
+//     throw new Error("Didnt worked");
+//   } finally {
+//     console.log("Yeah,I got");
+//   }
+// })();
+
+
+
+
+// const myPromise1 = Promise.resolve("Promise");
+
+// function funcOne() {
+//   myPromise1.then((res) => res).then((res) => console.log(res));
+//   setTimeout(() => {
+//     console.log("timeout");
+//   }, 0);
+//   console.log("last line");
+// }
+
+// async function funcTwo() {
+//   const res = await myPromise1;
+//   console.log(await res);
+//   setTimeout(() => {
+//     console.log("timeout");
+//   }, 0);
+//   console.log("last line");
+// }
+
+// funcOne();
+// funcTwo();
+
+
+const promise1 = Promise.reject("First");
+const promise2 = Promise.resolve("Second");
+const promise3 = Promise.resolve("Third");
+const promise4 = Promise.resolve("Fourth");
+const runPromises = async () => {
+  const res1 = await Promise.all([promise1, promise2]); // ["first","second"]
+  const res2 = await Promise.all([promise4, promise3]); //["Third"]
+   return [res1,res2];
+};
+runPromises()
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
+
+
+// new Promise((resolve, reject) => {
+//   resolve("Success!");
+// })
+//   .then(() => {
+//     throw Error("Oh noes!");
+//   })
+//   .catch((error) => {
+//     return "actually, that worked";
+//   })
+//   .then((message) => console.log(message));
+
+// Here first it will go to .then as it is resolve then there an error so it will go 
+// to .catch then catch is returning string so it will go to .then and it will print output
+
+// OUTPUT: actually, that worked
+
+
+
+// const promise = new Promise((res) => res(2));
+// promise
+//   .then((v) => {
+//     console.log(v);
+//     return v * 2;
+//   })
+//   .then((v) => {
+//     console.log(v);
+//     return v * 2;
+//   })
+//   .finally((v) => {
+//     console.log(v, "finally");
+//     return v * 2;
+//   })
+//   .then((v) => {
+//     console.log(v);
+//   });
