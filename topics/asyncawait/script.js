@@ -239,18 +239,18 @@
 // funcTwo();
 
 
-const promise1 = Promise.reject("First");
-const promise2 = Promise.resolve("Second");
-const promise3 = Promise.resolve("Third");
-const promise4 = Promise.resolve("Fourth");
-const runPromises = async () => {
-  const res1 = await Promise.all([promise1, promise2]); // ["first","second"]
-  const res2 = await Promise.all([promise4, promise3]); //["Third"]
-   return [res1,res2];
-};
-runPromises()
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+// const promise1 = Promise.reject("First");
+// const promise2 = Promise.resolve("Second");
+// const promise3 = Promise.resolve("Third");
+// const promise4 = Promise.resolve("Fourth");
+// const runPromises = async () => {
+//   const res1 = await Promise.all([promise1, promise2]); // ["first","second"]
+//   const res2 = await Promise.all([promise4, promise3]); //["Third"]
+//    return [res1,res2];
+// };
+// runPromises()
+//   .then((res) => console.log(res))
+//   .catch((err) => console.log(err));
 
 
 // new Promise((resolve, reject) => {
@@ -288,3 +288,119 @@ runPromises()
 //   .then((v) => {
 //     console.log(v);
 //   });
+
+
+
+// new Promise(function(resolve, reject) {
+//   console.log(4);
+//   resolve(5);
+//   console.log(6);
+// }).then(function() {
+//   console.log(7);
+// }).catch(function() {
+//   console.log(8);
+// }).then(function() {
+//   console.log(9);
+// }).catch(function() {
+//   console.log(10);
+// }).then(function() {
+//   console.log(11);
+// }).then(function(value) {
+//   console.log(value);
+// }).finally(function() {
+//   console.log(12);
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const promise = new Promise((resolve, reject)=> {
+//   setTimeout(() => {
+      
+//       reject(new Error());
+//       resolve("abc");
+//   }, 2000); 
+//   // reject(new Error());
+// })
+
+// promise
+// .finally(()=> console.log('finally'))
+// .then(data => {
+//   console.log(data +"data");
+// },
+// //  err => {
+// //     console.log("then" + err);
+// // }
+// ).catch(err => {
+//   console.log(err + "catch Error ut")
+// })
+
+// // console.log(promise);
+
+
+
+
+// let prom1 = new Promise((resolve)=>{
+//     setTimeout(()=>{resolve(`1st Promise - ${new Date()}`)},1000)
+//      // resolve('1st Promise')
+//   });
+   
+    
+//     let prom2 = new Promise((resolve) => {
+//       setTimeout(() => {
+//         resolve(`2nd Promise - ${new Date()}`);
+//       }, 3000);
+//       // resolve("2nd promise")
+//     });
+// console.log('normal line');
+
+// prom1.then((val)=>{console.log(`${val}-${new Date()}-then1`)});
+// prom2.then((val)=>{console.log(`${val}-${new Date()}`)});
+// prom1.then((val)=>{console.log(`${val}-${new Date()}-then2`)});
+
+
+    let prom1 = new Promise((resolve)=>{
+        setTimeout(()=>{resolve(`1st Promise - ${new Date()}`)},1000)}) ;
+        // resolve('1st Promise')}) ;
+        
+        let prom2 = new Promise((resolve)=>{
+        setTimeout(()=>{resolve(`2nd Promise - ${new Date()}`)},3000)}) ;
+        // resolve('2nd Promise')}) ;
+        
+        console.log('normal line');
+        
+        prom1.then((val)=>{console.log(`${val}-${new Date()}-then1`)});
+        prom2.then((val)=>{console.log(`${val}-${new Date()}`)});
+        prom1.then((val)=>{console.log(`${val}-${new Date()}-then2`)});
+
+
+
+function setExample() {
+    return new Promise((resolve, reject)=> {
+        resolve(
+            new Promise((resolve, reject)=> {
+                resolve(1)
+            })    
+        );
+    }).then(data => console.log(data));
+}
+
+setExample();
+

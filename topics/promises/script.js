@@ -11,7 +11,8 @@
 // promise.then(function(response)
 // {
 //     console.log(response)
-// })
+// }).then((res)=>console.log(res)).then((res)=>console.log(res)).then(()=>console
+// .log(3)).then(()=>console.log(4)).finally(()=>console.log(8)).then(()=>console.log(10))
 
 // function createpromise()
 // {
@@ -631,4 +632,4 @@ function promiseany(tasks) {
 
 // console.log("end");
 
-setTimeout(setTimeout(setTimeout(console.log("eh"), 300), 200), 1000);
+
